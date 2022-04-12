@@ -1,31 +1,31 @@
 {
-  "name": "@hodgef/ts-library-boilerplate-basic",
-  "version": "1.1.87",
-  "description": "Typescript Minimal Starter Kit for building libraries",
+  "name": "@fermuch/monorator",
+  "version": "0.1.0",
+  "description": "Monoflow Generator Library",
   "main": "build/index.js",
   "types": "build/types/index.d.ts",
   "scripts": {
     "start": "webpack serve --config webpack.config.demo.js",
     "build": "webpack && tsc",
     "build:demo": "webpack --config webpack.config.demo.js",
-    "test": "jest --silent",
+    "test": "jest",
     "coverage": "npm run test -- --coverage",
     "prepare": "npm run build",
     "trypublish": "npm publish || true"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hodgef/ts-library-boilerplate-basic"
+    "url": "https://github.com/fermuch/monorator.git"
   },
-  "author": "Francisco Hodge <hello@franciscohodge.com> (https://github.com/hodgef)",
+  "author": "Fermuch <fermuch@cryptolab.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hodgef/ts-library-boilerplate-basic/issues"
+    "url": "https://github.com/fermuch/monorator/issues"
   },
-  "homepage": "https://github.com/hodgef/ts-library-boilerplate-basic",
+  "homepage": "https://github.com/fermuch/monorator#readme",
   "keywords": [
     "library",
-    "starter",
+    "monoflow",
     "es6"
   ],
   "devDependencies": {

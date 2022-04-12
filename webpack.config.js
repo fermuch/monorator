@@ -3,8 +3,6 @@ const webpack = require('webpack');
 const PrettierPlugin = require("prettier-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const getPackageJson = require('./scripts/getPackageJson');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const {
   version,
@@ -31,21 +29,14 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
-    library: "MyLibrary",
+    library: "Monorator",
     libraryTarget: 'umd',
     clean: true
   },
   optimization: {
     minimize: true,
     minimizer: [
-      new TerserPlugin({ extractComments: false }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          map: {
-            inline: false
-          }
-        }
-      })
+      new TerserPlugin({ extractComments: true }),
     ],
   },
   module: {
@@ -57,20 +48,10 @@ module.exports = {
           loader: 'babel-loader'
         }
       },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          { loader: "css-loader", options: { sourceMap: true } },
-        ],
-      }
     ]
   },
   plugins: [
     new PrettierPlugin(),
-    new MiniCssExtractPlugin({
-        filename: 'css/index.css'
-    }),
     new webpack.BannerPlugin(banner)
   ],
   resolve: {

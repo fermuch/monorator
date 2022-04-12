@@ -1,5 +1,3 @@
-import "./index.css";
-
 class MyLibrary {
   constructor() {
     console.log("Library constructor loaded");
